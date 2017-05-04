@@ -5,7 +5,13 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: true,
     frameworks: ['mocha'],
-    files: ['app/tests/**/*.test.jsx'],
+    // this property [files] need to configure when you have error
+    // karma, jquery, foundation not found
+    files: [
+      'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/foundation-sites/dist/js/foundation.min.js',
+      'app/tests/**/*.test.jsx'
+    ],
     preprocessors: {
       'app/tests/**/*.test.jsx': ['webpack', 'sourcemap']
     },
